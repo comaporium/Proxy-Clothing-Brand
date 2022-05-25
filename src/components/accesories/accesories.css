@@ -1,0 +1,129 @@
+.accesories__container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.accesories__item{
+    background: var(--color-bg-variant);
+    padding: 1.3rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    transition: var(--transition);
+}
+
+.accesories__item:hover{
+    border-color: var(--color-bg-variant);
+    background: transparent;
+}
+
+.accesories__item-img{
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.accesories__item h3{
+    margin: 1.2rem 0 0.2rem;
+}
+
+.accesories__item h4{
+    margin: 0 0 0.2rem;
+    color: var(--color-primary);
+    display: inline;
+}
+
+.accesories__item h5{
+    margin: 0 1rem 1rem;
+    display: inline;
+    gap: 2rem;
+}
+
+.accesories__item-cta{
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-gap{
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.activeSlide{
+    opacity: 1;
+    transform: translateX(0), translateZ(20%);
+    z-index: 500;
+    transition: var(--transition);
+}
+
+.lastSlide{
+    transform: translateX(-100%), translateZ(50%);
+    display: none;
+    transition: var(--transition);
+}
+.nextSlide{
+    transform: translateX(100%), translateZ(50%);
+    display: none;
+    transition: var(--transition);
+}
+
+.accesories__item2{
+    background: var(--color-bg-variant);
+    padding: 1.3rem;
+    border-radius: 2rem;
+    border: 1px solid transparent;
+    transition: all 0.5s ease-out;
+}
+
+.accesories__item2:hover{
+    background: transparent;
+    backdrop-filter: blur(35px);
+    border-color: var(--color-bg-variant);
+}
+
+.accesories__item-img2{
+    backdrop-filter: blur(35px);
+}
+
+.acc{
+    width: 30%;
+    margin: 0 auto;
+}
+
+.center{
+    text-align: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+/* ============== srednji uređaj ============== */
+@media screen and (max-width: 1024px) {
+    .accesories__container{
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 1rem 1rem 1rem;
+    }
+
+
+
+    .acc{
+        width: var(--container-width-md);
+    }
+}
+/* ============== mali uređaj ============== */
+@media screen and (max-width: 600px) {
+    .accesories__container{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem 1rem 1rem;
+    }
+
+    .container.slide__container{
+        width: var(--container-width-sm);
+    }
+
+    .acc{
+        width: var(--container-width-sm);
+    }
+}
