@@ -20,6 +20,17 @@
 .accesories__item-img{
     border-radius: 1.5rem;
     overflow: hidden;
+    width: 50%;
+    display: inline-block;
+}
+
+.accesories__item-details{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .accesories__item h3{
@@ -67,26 +78,8 @@
     transition: var(--transition);
 }
 
-.accesories__item2{
-    background: var(--color-bg-variant);
-    padding: 1.3rem;
-    border-radius: 2rem;
-    border: 1px solid transparent;
-    transition: all 0.5s ease-out;
-}
-
-.accesories__item2:hover{
-    background: transparent;
-    backdrop-filter: blur(35px);
-    border-color: var(--color-bg-variant);
-}
-
-.accesories__item-img2{
-    backdrop-filter: blur(35px);
-}
-
 .acc{
-    width: 30%;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -96,6 +89,14 @@
     margin-top: 2rem;
 }
 
+.swiper-pagination-bullet-active{
+    background: var(--color-primary) !important;
+}
+
+.swiper-pagination{
+    position: static !important;
+    padding-top: 1rem !important;
+}
 
 /* ============== srednji uređaj ============== */
 @media screen and (max-width: 1024px) {
@@ -105,10 +106,22 @@
         margin: 1rem 1rem 1rem;
     }
 
-
-
     .acc{
         width: var(--container-width-md);
+    }
+
+    .accesories__item-details{
+        width: 50%;
+        text-align: center;
+        height: max-content;
+        float: right;
+        float: right;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 75%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     }
 }
 /* ============== mali uređaj ============== */
@@ -125,5 +138,23 @@
 
     .acc{
         width: var(--container-width-sm);
+    }
+
+    .accesories__item-img{
+        width: auto;
+    }
+
+    .accesories__item-details{
+        width: 100%;
+        text-align: center;
+        height: max-content;
+        float: right;
+        margin: auto;
+        position: relative;
+        top: auto;
+        left: auto;
+        -ms-transform: translate(0%, 0%);
+        transform: translate(0%, 0%);
+        gap: 1rem;
     }
 }
