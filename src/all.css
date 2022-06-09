@@ -1,0 +1,35 @@
+.all__item-img {
+    border-radius: 1.5rem;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.all__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2.5rem;
+    justify-content: center;
+    padding: 4rem;
+}
+
+/* ============== srednji uređaj ============== */
+@media screen and (max-width: 1024px) {
+    .all__container{
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        margin: 1rem 1rem 1rem;
+        
+    }
+}
+/* ============== mali uređaj ============== */
+@media screen and (max-width: 600px) {
+    .all__container{
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 1rem 1rem 1rem;
+    }
+
+    .all__item-img{
+        width: auto;
+    }
+}

@@ -55,6 +55,7 @@
     color: var(--color-primary);
     font-size: 1.4rem;
     margin-bottom: 1rem;
+    margin: 0 10px 0;
 }
 
 .newItems__card h5{
@@ -148,5 +149,12 @@
 
     .newItems__content p{
         margin:  1.5rem 0;
+    }
+
+    .newItems__icon{
+        margin: 0 2px 0;
+    }
+    .btn{
+        margin-top: 4rem !important;
     }
 }

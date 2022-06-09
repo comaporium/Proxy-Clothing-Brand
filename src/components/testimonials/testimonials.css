@@ -1,0 +1,66 @@
+.containerr{
+    width: max-content;
+    margin: 0 auto;
+}
+
+.tabela__img{
+    width: 30px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.tabela__img img{
+    border-radius: 2rem;
+    width: 100px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.table__tr td{
+    text-align: center;
+    width: 20%;
+}
+
+.bucket__container{
+    background-color: var(--color-bg-variant);
+    padding: 1rem;
+    border-radius: 2rem;
+    text-align: center;
+    min-height: auto;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.section__bucket{
+    height: 100vh;
+}
+
+
+.center{
+    width: 15%;
+    margin:0 auto;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============== srednji uređaj ============== */
+@media screen and (max-width: 1024px) {
+    .containerr{
+        width: var(--container-width-md);
+    }
+}
+
+/* ============== mali uređaj ============== */
+@media screen and (max-width: 600px) {
+    .containerr{
+        width: var(--container-width-sm);
+    }
+    .tabela__img img{
+        width: 75px;
+    }
+
+    .table__tr{
+        width: 20%;
+    }
+}

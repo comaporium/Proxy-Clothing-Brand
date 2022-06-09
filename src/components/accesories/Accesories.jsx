@@ -1,14 +1,31 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './accesories.css'
-import data from './data'
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import { Link } from 'react-router-dom';
 import { Pagination } from 'swiper';
-
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { useNavigate } from 'react-router-dom';
 
 const Accesories = () => {
+  let navigate = useNavigate();
+  const [item, setitem] = useState([]);
+  useEffect(() => {
+    async function fetchZadnjih5() {
+      const response = await fetch('https://localhost:44317/api/ZadnjiPetAccesories/getZadnjihPetAccesories', 
+      {method: 'GET',        
+      mode: 'cors',         
+      headers: {           
+        'Content-Type': 'application/json'         
+      }});       
+      if (!response.ok) throw Error('Did not recived expected data');       
+      const item = await response.json();       
+      console.log(item);
+      setitem(item);   
+    } 
+    fetchZadnjih5()
+  }, [])
+
   return (
     <section id='accesories'>
       <h5>New</h5>
@@ -20,28 +37,30 @@ const Accesories = () => {
       pagination={{ clickable: true }}
       >
         <div className='accesories__container'>
-        {data.map((data,indexData)=>{
-            const {id, name, group, image, gender, price} = data;
+        {item.map((data,indexData)=>{
+            const {idartikla, naziv, nazivNabavljaca, spol, cijena, dodatneInformacije, vrstaArtikla ,parent ,urlSlike} = data;
             return (
-              <SwiperSlide className='accesories__item'>
+              <SwiperSlide className='accesories__item' key={data.idartikla}>
                 <div className="accesories__item-img">
-                  <img src={data.image} alt={data.name} />
+                  <img src={data.urlSlike} alt={data.naziv} />
                 </div>
                 <div className='accesories__item-details'>
-                  <h3>{data.name}</h3>
-                  <h4>{data.group}</h4>
-                  <h5>{data.gender}</h5> <h5>{data.price}</h5>
+                  <h3>{data.naziv}</h3>
+                  <h4>{data.vrstaArtikla}</h4>
+                  <h5>{data.spol}</h5> <br />
+                  <h4>{data.cijena} BAM</h4>
                   <br />
-                  <a href="https://google.ba" target='_blank' className='btn btn-gap'>Details</a>
-                  <a href="https://google.ba" target='_blank' className='btn btn-primary'>Add to cart</a>
+                  <a onClick={()=>{
+                    navigate(`/Detail/${data.idartikla}`)
+                  }} className='btn'>Details</a> <br />
+                  <a onClick={()=>{
+                    navigate(`/All/${data.parent}`)
+                  }} className='btn btn-primary'>Show more</a>
                 </div>
               </SwiperSlide>
             )})}
         </div>
       </Swiper>
-      <div className='center'>
-        <a href="https://google.ba" target='_blank' className='btn btn-primary'>Show More</a>
-      </div>
     </section>
   )
 }

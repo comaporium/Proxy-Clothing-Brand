@@ -1,7 +1,8 @@
-.accesories__container{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+.details__container{
+    display: block;
+    gap: 1.2rem;
+    margin: 1rem 1rem 1rem;
+    width: 50%;
 }
 
 .accesories__item{
@@ -17,11 +18,11 @@
     background: transparent;
 }
 
-.accesories__item-img{
+.detail__item-img{
     border-radius: 1.5rem;
     overflow: hidden;
-    width: 50%;
-    display: inline-block;
+    width: 100%;
+    display: block;
 }
 
 .accesories__item-details{
@@ -78,7 +79,12 @@
     transition: var(--transition);
 }
 
-.acc{
+.swpr{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.slike{
     width: 50%;
     margin: 0 auto;
 }
@@ -98,8 +104,13 @@
     padding-top: 1rem !important;
 }
 
-.swiper{
-    overflow: visible !important;
+.swpr.swiper{
+    overflow: hidden !important;
+}
+
+.swiper_wrapper{
+    width: 50% !important;
+    height: 50% !important;
 }
 
 /* ============== srednji uređaj ============== */
@@ -111,6 +122,14 @@
     }
 
     .acc{
+        width: var(--container-width-md);
+    }
+
+    .slike{
+        width: var(--container-width-md);
+    }
+
+    .swpr{
         width: var(--container-width-md);
     }
 
@@ -145,6 +164,13 @@
     }
 
     .acc{
+        width: var(--container-width-sm);
+    }
+    .slike{
+        width: var(--container-width-sm);
+    }
+
+    .swpr{
         width: var(--container-width-sm);
     }
 

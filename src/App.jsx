@@ -1,28 +1,22 @@
-import React from 'react'
-import Header from './components/header/Header'
-import Nav from './components/nav/Nav'
-import NewItems from './components/newItems/NewItems'
-import Accesories from './components/accesories/Accesories'
-import Shirt from './components/shirt/Shirt'
-import Shorts from './components/shorts/Shorts'
-import Testimonials from './components/testimonials/Testimonials'
-import Sneakers from './components/sneakers/Sneakers'
-import Contact from './components/contact/Contact'
-import Footer from './components/footer/Footer'
+import React, {useState} from 'react'
+import Home from './Home'
+import All from './All'
+import Detail  from './Detail'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Korisnik from './Korisnik'
 
 const App = () => {
+const [bucket, setBucket] = useState([]);
   return (
     <>
-        <Header />
-        <Nav />
-        <NewItems />
-        <Accesories />
-        <Shirt />
-        <Shorts />
-        <Sneakers />
-        <Testimonials />
-        <Contact />
-        <Footer />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home bucket={bucket} setBucket={setBucket}/>} />
+          <Route path='/All/:parent' element={<All/>} />
+          <Route path='/Detail/:idartikla' element={<Detail bucket={bucket} setBucket={setBucket}/>} />
+          <Route path='/Korisnik' element={<Korisnik bucket={bucket} setBucket={setBucket}/>}></Route>
+        </Routes>
+      </Router>
     </>
   )
 }
